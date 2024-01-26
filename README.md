@@ -1,16 +1,29 @@
-# todo_app
+# Todo Uygulaması
 
-A new Flutter project.
+Bu proje, DTech Eğitim YouTube kanalındaki videolardan esinlenerek geliştirilmiş bir todo uygulamasıdır.
 
-## Getting Started
+## Başlangıç
 
-This project is a starting point for a Flutter application.
+Projenizi çalıştırmak için aşağıdaki adımları takip edebilirsiniz.
 
-A few resources to get you started if this is your first Flutter project:
+### Gereksinimler
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Projeyi çalıştırmak için aşağıdaki gereksinimlere ihtiyacınız olacaktır:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Flutter SDK
+- Dart
+- (Diğer bağımlılıklar buraya eklenebilir)
+
+Gereksinimleri yüklemek için şu komutu kullanabilirsiniz:
+
+```bash
+flutter pub get
+
+### Kurulum
+
+git clone https://github.com/kullanici/your-todo-app.git
+cd your-todo-app
+
+
+
+
