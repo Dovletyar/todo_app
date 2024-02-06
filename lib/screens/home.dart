@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:todo_app/constants/color.dart';
+import 'package:todo_app/constants/tasktype.dart';
+import 'package:todo_app/model/task.dart';
 import 'package:todo_app/screens/add_new_task.dart';
 import 'package:todo_app/todoitem.dart';
 
@@ -12,8 +14,50 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<String> todo = ["Study Lessons", "Run 5km", "Go to the party"];
-  List<String> completed = ["Game meetup", "Take out trash"];
+  //List<String> todo = ["Study Lessons", "Run 5km", "Go to the party"];
+  //List<String> completed = ["Game meetup", "Take out trash"];
+
+  List<Task> todo = [
+    Task(
+      type: TaskType.note,
+      title: "Study Lessons",
+      description: "Study COMP117",
+      isCompleted: false,
+    ),
+    Task(
+      type: TaskType.calendar,
+      title: "Go to the party",
+      description: "Attend to party",
+      isCompleted: false,
+    ),
+    Task(
+      type: TaskType.contest,
+      title: "Run 5 km",
+      description: "Run 5 kilometers",
+      isCompleted: false,
+    ),
+  ];
+
+  List<Task> completed = [
+    Task(
+      type: TaskType.note,
+      title: "Study Lessons",
+      description: "Study COMP117",
+      isCompleted: false,
+    ),
+    Task(
+      type: TaskType.note,
+      title: "Study Lessons",
+      description: "Study COMP117",
+      isCompleted: false,
+    ),
+  ];
+
+  void addNewTask(Task newTask) {
+    setState(() {
+      todo.add(newTask);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           fontSize: 35,
                           fontWeight: FontWeight.bold),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -71,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     shrinkWrap: true,
                     itemCount: todo.length,
                     itemBuilder: (context, index) {
-                      return TodoItem(title: todo[index]);
+                      return TodoItem(task: todo[index]);
                     },
                   ),
                 ),
@@ -98,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     primary: false,
                     itemCount: completed.length,
                     itemBuilder: (context, index) {
-                      return TodoItem(title: completed[index]);
+                      return TodoItem(task: completed[index]);
                     },
                   ),
                 ),
@@ -106,14 +150,17 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             //Button
             ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const AddNewTaskScreen(),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => AddNewTaskScreen(
+                      addNewTask: (newTask) => addNewTask(newTask),
                     ),
-                  );
-                },
-                child: const Text("Add New Task"))
+                  ),
+                );
+              },
+              child: const Text("Add New Task"),
+            ),
           ]),
         ),
       ),
