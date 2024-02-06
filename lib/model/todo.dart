@@ -10,7 +10,7 @@ class Todo {
   bool? completed;
   int? userId;
 
-//From json
+  //From json
   Todo.fromJson(Map<String, dynamic> json) {
     id = json["id"];
     todo = json["todo"];
@@ -18,7 +18,7 @@ class Todo {
     userId = json["userId"];
   }
 
-//To json
+  //To json
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
     data["id"] = id;
