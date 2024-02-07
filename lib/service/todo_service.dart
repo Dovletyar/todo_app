@@ -4,8 +4,9 @@ import 'package:http/http.dart' as http;
 
 class TodoService {
   final String url = "https://dummyjson.com/todos/";
+  final String addUrl = "https://dummyjson.com/todos/add";
 
-  //UncompletedTodos
+  //UncompletedTodos Get Function
   Future<List<Todo>> getUnCompletedTodos() async {
     final response = await http.get(Uri.parse(url));
     List<dynamic> resp = jsonDecode(response.body)["todos"];
@@ -22,7 +23,7 @@ class TodoService {
     return todos;
   }
 
-  //CompletedTodos
+  //CompletedTodos Get Function
   Future<List<Todo>> getCompletedTodos() async {
     final response = await http.get(Uri.parse(url));
     List<dynamic> resp = jsonDecode(response.body)["todos"];
@@ -37,5 +38,20 @@ class TodoService {
     });
 
     return todos;
+  }
+
+  //Post Function
+  Future<String> addTodo(Todo newTodo) async {
+    final response = await http.post(
+      Uri.parse(addUrl),
+      headers: <String, String>{
+        "Content-Type": "application/json; charset=UTF-8"
+      },
+      body: json.encode(newTodo.toJson()),
+    );
+
+    print(response.body);
+
+    return response.body;
   }
 }

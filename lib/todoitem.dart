@@ -35,14 +35,17 @@ class _TodoItemState extends State<TodoItem> {
             Expanded(
               child: Column(
                 children: [
-                  Text(
-                    widget.task.todo!,
-                    style: TextStyle(
-                        decoration: widget.task.completed!
-                            ? TextDecoration.lineThrough
-                            : TextDecoration.none,
-                        fontSize: 21,
-                        fontWeight: FontWeight.bold),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text(
+                      widget.task.todo!,
+                      style: TextStyle(
+                          decoration: widget.task.completed!
+                              ? TextDecoration.lineThrough
+                              : TextDecoration.none,
+                          fontSize: 19,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                   Text(
                     "User: ${widget.task.userId!}",

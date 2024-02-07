@@ -108,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            //Top Column
+            //Top Column (Completed)
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
@@ -147,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            //Bottom Column
+            //Bottom Column (Uncompleted)
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
